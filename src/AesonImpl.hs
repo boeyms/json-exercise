@@ -59,45 +59,10 @@ data Dashboard = Dashboard {
     , links :: [Text]
     } deriving (Generic, Show)
 
-instance FromJSON Dashboard where
-    parseJSON = withObject "Dashboard" $ \v ->
-        Dashboard
-            <$> v
-            .:  "__inputs"
-            <*> v
-            .:  "__requires"
-            <*> v
-            .:  "editable"
-            <*> v
-            .:  "gnetId"
-            <*> v
-            .:  "graphTooltip"
-            <*> v
-            .:  "id"
-            <*> v
-            .:  "iteration"
-            <*> v
-            .:  "links"
+instance FromJSON Dashboard
 
 instance ToJSON Dashboard where
-    toEncoding (Dashboard __inputs __requires editable gnetId graphTooltip id iteration links)
-        = pairs
-            $  "__inputs"
-            .= __inputs
-            <> "__requires"
-            .= __requires
-            <> "editable"
-            .= editable
-            <> "gnetId"
-            .= gnetId
-            <> "graphTooltip"
-            .= graphTooltip
-            <> "id"
-            .= id
-            <> "iteration"
-            .= iteration
-            <> "links"
-            .= links
+    toEncoding = genericToEncoding defaultOptions
 
 manipulate :: B.ByteString -> Maybe B.ByteString
 manipulate bstr = do
