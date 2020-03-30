@@ -4,4 +4,5 @@ extra-deps:
   - core-text-0.2.3.3
   - core-data-0.2.1.5
   - core-program-0.2.4.2
-
+  # Recommended by `stack hoogle` to enable it to install
+  - haskell-src-exts-1.23.0@sha256:1bb9f7e97d569e56973133cb075fdcc1bfd11f90d94b035b5cf44814bb39a73d,4541

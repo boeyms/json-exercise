@@ -1,25 +1,32 @@
-name: hello
-version: '0.1.1'
-synopsis: Hello
-author: Andrew Cowie <andrew@operationaldynamics.com>
-maintainer: Andrew Cowie <andrew@operationaldynamics.com>
-copyright: © 2017-2020 Operational Dynamics, and Others
+name: json-exercise
+version: '0.0.1'
+synopsis: Json-Exercise
+author: Maun Suang Boey <no-reply@example.com>
+maintainer: Maun Suang Boey <no-reply@example.com>
+copyright: © 2017-2020 Maun Suang Boey, Operational Dynamics, and Others
 license: MIT
-tested-with: GHC==8.6
+tested-with: GHC==8.6.5
 
 ghc-options: -Wall -Wwarn -fwarn-tabs
 
 dependencies:
+  - aeson
+  - aeson-pretty
   - base
+  - bytestring
   - core-data
   - core-text
   - core-program >= 0.2.4
+  - json
+  - lens
+  - lens-aeson
+  - text
 
 executables:
-  hello:
+  json-exercise:
     source-dirs:
       - src
-    main: HelloMain.hs
+    main: JsonExercise.hs
     ghc-options: -threaded
 
 tests:

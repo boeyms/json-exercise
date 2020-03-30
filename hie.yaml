@@ -1,1 +1,1 @@
-cradle: {stack: {component: "hello:test:check" }}
+cradle: {stack: {component: "json-exercise:test:check" }}
