@@ -7,6 +7,7 @@ module AesonImpl
 where
 
 import           Core.Program
+import           Core.System
 import           Core.Text
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
@@ -77,8 +78,8 @@ processFile path = do
     return $ manipulate contents
 
 runAeson :: FilePath -> Program None ()
-runAeson path = withContext $ \runProgram -> do
-    extract <- processFile path
+runAeson path = do
+    extract <- liftIO $ processFile path
     case extract of
         Nothing -> return ()
-        Just v  -> runProgram $ write $ intoRope v
+        Just v  -> write $ intoRope v

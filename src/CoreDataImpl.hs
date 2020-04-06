@@ -8,6 +8,7 @@ where
 import           Core.Data
 import           Core.Encoding
 import           Core.Program
+import           Core.System
 import           Core.Text
 import qualified Data.ByteString.Lazy          as B
 import           Data.Maybe
@@ -32,8 +33,8 @@ processFile path = do
     return $ manipulate contents
 
 runCoreData :: FilePath -> Program None ()
-runCoreData path = withContext $ \runProgram -> do
-    extract <- processFile path
+runCoreData path = do
+    extract <- liftIO $ processFile path
     case extract of
         Nothing -> return ()
-        Just v  -> runProgram $ writeR v
+        Just v  -> writeR v
