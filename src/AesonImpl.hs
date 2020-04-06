@@ -38,16 +38,16 @@ instance FromJSON Requires where
                       .:  "version"
 
 instance ToJSON Requires where
-    toEncoding (Requires type_ id_ name_ version_) =
+    toEncoding (Requires type__ id__ name__ version__) =
         pairs
             $  "type"
-            .= type_
+            .= type__
             <> "id"
-            .= id_
+            .= id__
             <> "name"
-            .= name_
+            .= name__
             <> "version"
-            .= version_
+            .= version__
 
 data Dashboard = Dashboard {
       __inputs :: [Int]
